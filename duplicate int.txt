@@ -1,0 +1,25 @@
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class DuplicateInt {
+    private String value;
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+        DuplicateInt ashik=new DuplicateInt();
+        System.out.println("Enter the values (like 1,2,3,4,5)= ");
+        ashik.value=input.next();
+        List<Long> values= Stream.of(ashik.value.split(",")).map(Long::valueOf).collect(Collectors.toList());
+        Collections.sort(values);
+        System.out.println("the values are="+values.toString());
+        for (int i=0;i<values.size()-1;i++){
+            if (values.get(i) == values.get(i+1))
+            System.out.println("Duplicate value is="+ values.get(i));
+
+        }
+
+
+    }
+}
